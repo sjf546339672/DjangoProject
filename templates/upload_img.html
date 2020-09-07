@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{% url "uploadimg" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="uname">姓名：</label><input type="text" name="uname" id="uname">
+        </p>
+        <p>
+            <label for="photo">头像：</label><input type="file" name="photo" id="photo">
+        </p>
+        <p>
+            <input type="submit" value="注册">
+        </p>
+    </form>
+</body>
+</html>

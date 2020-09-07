@@ -77,7 +77,7 @@
             width:110px;
            text-align: center;
         }
-        
+
         #content ul{
             /*去除ul的内边距和外边距*/
             margin:0;
@@ -110,32 +110,18 @@
     </div>
     <div id="content" >
         <ul class="clearfix">
+            {% for movie in movies %}
             <li>
-               <a href="#"><img src="http://t.dyxz.la/upload/img/201801/poster_20180102_4468474_b.jpg!list"/></a>
-                <h1 class="h1">哈佛少女的快乐清单</h1>
-                <span class="tip"> What's your middle name?</span>
+               <a href={{ movie.mlink }}><img src={{ movie.mimg }}/></a>
+                <h1 class="h1">{{ movie.mname }}</h1>
+                <span class="tip">{{ movie.mdesc }}</span>
             </li>
-             <li>
-               <a href="#"><img src="http://t.dyxz.la/upload/img/201801/poster_20180102_4468474_b.jpg!list"/></a>
-                <h1 class="h1">哈佛少女的快乐清单</h1>
-                <span class="tip"> What's your middle name?</span>
-            </li>
-             <li>
-               <a href="#"><img src="http://t.dyxz.la/upload/img/201801/poster_20180102_4468474_b.jpg!list"/></a>
-                <h1 class="h1">哈佛少女的快乐清单</h1>
-                <span class="tip"> What's your middle name?</span>
-            </li>
-             <li>
-               <a href="#"><img src="http://t.dyxz.la/upload/img/201801/poster_20180102_4468474_b.jpg!list"/></a>
-                <h1 class="h1">哈佛少女的快乐清单</h1>
-                <span class="tip"> What's your middle name?</span>
-            </li>
-             <li>
-               <a href="#"><img src="http://t.dyxz.la/upload/img/201801/poster_20180102_4468474_b.jpg!list"/></a>
-                 <h1 class="h1">哈佛少女的快乐清单</h1>
-                <span class="tip"> What's your middle name?</span>
-            </li>
+            {% endfor %}
         </ul>
+    </div>
+    <div>
+        <a href="/movie/show/?num={{ pre_page_num }}">上一页</a>
+        <a href="/movie/show/?num={{ next_page_num }}">下一页</a>
     </div>
 </body>
 </html>

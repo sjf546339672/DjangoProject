@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table width="500px" cellpadding="0" border="1">
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>头像</th>
+            <th>操作</th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.sname }}</td>
+                <td><img width="150px" src="{{ MEDIA_URL }}{{ student.photo }}" /></td>
+                <td><a href="{% url "downloadimg" %}?photo={{ student.photo }}">下载</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
