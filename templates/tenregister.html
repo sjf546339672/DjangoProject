@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{% url "tenregister" %}">
+        {% csrf_token %}
+        <p>
+            <label for="{{ stuForm.sname.id_for_label }}">{{ stuForm.sname.label }}</label>{{ stuForm.sname }}
+        </p>
+        <p>
+            <label for="{{ clazzForm.cname.id_for_label }}">{{ clazzForm.cname.label }}</label>{{ clazzForm.cname }}
+        </p>
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>

@@ -27,6 +27,9 @@ img_path = os.path.join(os.getcwd(), "media", photo.replace("/", "\\"))
         Content-Disposition: attachment
         Content-Disposition: attachment; filename="filename.jpg"
 
+6.DEBUG=False  在templates下创建一个404.html、500.html页面，那么只要页面出现404报错就会显示该页面
+
+7. 内部的一个函数作为它一个外部的返回叫做闭包
 
 前端
 <span class="tip"> What's your middle name?</span>

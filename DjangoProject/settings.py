@@ -26,6 +26,7 @@ SECRET_KEY = 'p6v#xs0dlf)&2)!$4fy!2z-&!ezkxrov0%0g3dqt7v*+mp5332'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -47,9 +48,15 @@ INSTALLED_APPS = [
     "stufour",
     "stufive",
     "stusix",
+    "stuseven",
+    "stueight",
+    "stunine",
+    "stuten",
+    "stueleven",
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',  # 必须放在第一个  缓存中间件
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,6 +64,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',  # 必须放在最后一个缓存中间件
+    # "MyMiddleware.middleware.Row1",
+    # "MyMiddleware.middleware.Row2",
+    # "MyMiddleware.middleware.Row3",
 ]
 
 ROOT_URLCONF = 'DjangoProject.urls'
@@ -73,6 +84,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 "django.template.context_processors.media",
+                "stunine.my_context_process.getData",
             ],
         },
     },
@@ -132,8 +144,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/imgs"),
+    os.path.join(BASE_DIR, "static/css"),
+    os.path.join(BASE_DIR, "static/js"),
+]
 
 # global_settings
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+global_settings
+
+# The cache backends to use.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    'redis': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        "LOCATION": 'redis://127.0.0.1:6379/0',
+    }
+}
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
+CACHE_MIDDLEWARE_SECONDS = 600
+CACHE_MIDDLEWARE_ALIAS = 'redis'
+
+
