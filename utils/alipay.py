@@ -1,28 +1,18 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
-# from urllib import quote_plus
-# SHA256WithRSA (公钥，私钥)
-# md5
 from urllib.parse import quote_plus
-
-# from Crypto.PublicKey import RSA
-# from Crypto.Signature import PKCS1_v1_5
-# from Crypto.Hash import SHA256
 import base64
-
 import json
-
-from crypto.Hash import SHA256
-from crypto.PublicKey import RSA
-from crypto.Signature import PKCS1_v1_5
+from Crypto.Hash import SHA256
+from Crypto.PublicKey import RSA
+from Crypto.Signature import PKCS1_v1_5
 
 
 class AliPay(object):
     """
     创建支付对象，里面是常用的请求参数
     """
-    def __init__(self, appid, app_notify_url, app_private_key_path,
-                 alipay_public_key_path, return_url, debug=False):
+    def __init__(self, appid, app_notify_url, app_private_key_path, alipay_public_key_path, return_url, debug=False):
         self.appid = appid
         self.app_notify_url = app_notify_url  #  异步通知
         self.return_url = return_url # 同步通知

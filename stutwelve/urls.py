@@ -4,7 +4,7 @@ from . import views
 
 
 urlpatterns = [
-    path("tweindex", views.IndexView, name="tweindex"),
+    path("", views.IndexView, name="tweindex"),
     path("topay", views.ToPayView, name="topay"),
     path("checkPay", views.checkPayView, name="checkPay"),
 ]

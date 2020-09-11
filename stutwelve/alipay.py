@@ -12,9 +12,9 @@ import base64
 
 import json
 
-from crypto.Hash import SHA256
-from crypto.PublicKey import RSA
-from crypto.Signature import PKCS1_v1_5
+from Crypto.Hash import SHA256
+from Crypto.PublicKey import RSA
+from Crypto.Signature import PKCS1_v1_5
 
 
 class AliPay(object):

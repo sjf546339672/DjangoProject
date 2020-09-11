@@ -1,9 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from .alipay import *
-import crypto
-import sys
-sys.modules['Crypto'] = crypto
+
 
 def IndexView(request):
     return render(request, "tweindex.html")
@@ -19,12 +17,12 @@ alipay = AliPay(appid="2021000117601490",
 
 def ToPayView(request):
     """获取二维码支付界面"""
-    m = request.POST.get("m", 0)
+    m = request.POST.get("m", 12)
     import uuid
 
     # 获取扫码支付的请求参数
     params = alipay.direct_pay(subject="京东超市",
-                               out_trade_no=uuid.uuid4().get_hex(),
+                               out_trade_no=uuid.uuid4().hex,
                                total_amount=str(m))
     # 获取扫码支付的请求地址
     url = alipay.gateway+"?"+params
