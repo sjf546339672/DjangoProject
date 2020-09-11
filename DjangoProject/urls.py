@@ -32,6 +32,7 @@ urlpatterns = [
     path('stunine/', include("stunine.urls")),
     path('stuten/', include("stuten.urls")),
     path('stueleven/', include("stueleven.urls")),
+    path('stutwelve/', include("stutwelve.urls")),
 ]
 
 from django.views.static import serve
