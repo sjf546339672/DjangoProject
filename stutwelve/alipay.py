@@ -144,7 +144,7 @@ class AliPay(object):
 
 
 if __name__ == '__main__':
-    ali = AliPay(app_notify_url='http://127.0.0.1',return_url='http://127.0.0.1',appid='2016073100136733',app_private_key_path='app_private_key',alipay_public_key_path='app_public_key')
+    ali = AliPay(app_notify_url='http://127.0.0.1', return_url='http://127.0.0.1',appid='2016073100136733',app_private_key_path='app_private_key',alipay_public_key_path='app_public_key')
     print('https://openapi.alipaydev.com/gateway.do?'+ali.direct_pay(subject='asdsad',total_amount='0.01',out_trade_no='1000000000000000'))
     return_data = input('请输入返回的参数\r\n').strip()
     d = dict([(item.split('=')) for item in return_data.split('&')])
