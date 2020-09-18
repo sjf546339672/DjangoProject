@@ -33,6 +33,8 @@ urlpatterns = [
     path('stuten/', include("stuten.urls")),
     path('stueleven/', include("stueleven.urls")),
     path('stutwelve/', include("stutwelve.urls")),
+    path('api/v1/', include("rest001.urls")),
+    path('api/', include("rest002.urls")),
 ]
 
 from django.views.static import serve

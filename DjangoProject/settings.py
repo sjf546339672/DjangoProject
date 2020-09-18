@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "rest_framework",
     "student",
     "movie",
     "stuone",
@@ -53,6 +54,8 @@ INSTALLED_APPS = [
     "stunine",
     "stuten",
     "stueleven",
+    "rest001",
+    "rest002",
 ]
 
 MIDDLEWARE = [
@@ -155,7 +158,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-global_settings
+# global_settings
 
 # The cache backends to use.
 CACHES = {
@@ -172,3 +175,10 @@ CACHE_MIDDLEWARE_SECONDS = 600
 CACHE_MIDDLEWARE_ALIAS = 'redis'
 
 
+REST_FRAMEWORK = {
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
+    "DEFAULT_VERSION": "v1",
+    "ALLOWED_VERSIONS": ["v1", "v2", "v3"],
+    "VERSION_PARAM": "version",
+    "PAGE_SIZE": 3,
+}
